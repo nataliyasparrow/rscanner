@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-3">
+        <h5>Recognize new receipt:</h5>
+        <img src="r1.jpg" width="250"><br>
+        <div class="row">
+        <button class="btn btn-secondary" (click)="RecognizeOcr()">Recognize OCR</button>
+        <button class="btn btn-secondary" (click)="RecognizeBrf()">Recognize BRF</button>
+        </div>
+    </div>
+    <div class="col-3" *ngIf="isResultOcr">
+        <h5>Results (OCR Computer Vision):</h5>
+        <p>Store name: {{resultOcr.store}}</p>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                </tr>
+            </thead>  
+            <tbody *ngFor="let i of resultOcr.items">
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-3" *ngIf="isResultBrf">
+        <h5>Results (BRF Computer Vision):</h5>
+        <p>Store name: {{resultBrf.store}}</p>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                </tr>
+            </thead>  
+            <tbody *ngFor="let i of resultBrf.items">
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
